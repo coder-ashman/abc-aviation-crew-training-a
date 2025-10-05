@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["es2020", "dom"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": [],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false
+  },
+  "files": ["src/main.single-spa.ts"],
+  "angularCompilerOptions": {
+    "enableIvy": true
+  }
+}

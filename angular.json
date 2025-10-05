@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json.schemastore.org/angular-cli",
+  "version": 1,
+  "projects": {
+    "training-a": {
+      "projectType": "application",
+      "root": "src",
+      "sourceRoot": "src",
+      "architect": {}
+    }
+  }
+}
