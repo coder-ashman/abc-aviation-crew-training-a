@@ -4,9 +4,29 @@
   "projects": {
     "training-a": {
       "projectType": "application",
-      "root": "src",
+      "root": "",
       "sourceRoot": "src",
-      "architect": {}
+      "architect": {
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "training-a:build",
+            "port": 4200,
+            "host": "localhost",
+            "publicHost": "localhost:4200"
+          }
+        },
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.single-spa.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.json"
+          }
+        }
+      }
     }
   }
 }

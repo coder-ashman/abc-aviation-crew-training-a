@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "noImplicitAny": false
   },
-  "files": ["src/main.single-spa.ts"],
+  "files": ["src/main.single-spa.ts", "src/polyfills.ts"],
   "angularCompilerOptions": {
     "enableIvy": true
   }

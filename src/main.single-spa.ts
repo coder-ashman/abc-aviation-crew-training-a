@@ -1,21 +1,25 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { singleSpaAngular, getSingleSpaExtraProviders } from 'single-spa-angular';
 import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
 
-if (environment.production) {
-  enableProdMode();
+// Simple Angular app that can be loaded by single-spa
+let appRef: any = null;
+
+export async function bootstrap() {
+  // Bootstrap the Angular app
+  appRef = await platformBrowserDynamic().bootstrapModule(AppModule);
 }
 
-const lifecycles = singleSpaAngular({
-  bootstrapFunction: singleSpaProps => {
-    return platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(AppModule);
-  },
-  template: '<training-a-root />',
-  Router: null,
-});
+export async function mount() {
+  // Mount the app
+  console.log('Training-A Angular app mounted');
+}
 
-export const bootstrap = lifecycles.bootstrap;
-export const mount = lifecycles.mount;
-export const unmount = lifecycles.unmount;
+export async function unmount() {
+  // Unmount the app
+  if (appRef) {
+    appRef.destroy();
+    appRef = null;
+  }
+  console.log('Training-A Angular app unmounted');
+}
